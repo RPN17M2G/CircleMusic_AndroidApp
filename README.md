@@ -11,3 +11,4 @@ Additionally, there are security measures in place to protect user privacy, incl
 The interface is designed to be reactive and dynamic, with background colors changing according to the image of the playing song or the selected playlist.
 
 The full project description(In Hebrew) will be uploaded at the 9th of June 2023.
+*This repository lacks issues and commits because of private information is included until removal at the 9th of June 2023.
