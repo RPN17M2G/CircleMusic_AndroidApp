@@ -1,0 +1,420 @@
+@startuml
+class com.example.circleMusic.nowPlaying {
++ ArrayList<MusicItem> musicItemList
++ ArrayList<MusicItem> musicItemListCopy
++ int currentItem
++ boolean isOne
++ boolean isShuffle
+- SeekBar seekBar
+- TextView indicator
+- TextView title
+- TextView artist
+- ImageView image
+- Runnable seekbarEverySecond
+- boolean isFirstTime
+- boolean onlyEnteredNowPlaying
+- globalCommunication globalLists
+- boolean isPlayingForMovingSong
+- boolean stateOfPlayButton
+# void onCreate(Bundle)
+- void addTrackToPlaylist()
+- int findItemIndexInCopy(String)
+- void setDuration()
+- void setSongDetails()
+- int getImageColor()
+- void manageSeekbar()
+- void nextSong()
+- ArrayList<MusicItem> shuffle(ArrayList<MusicItem>)
+- {static} int getDominantColor(Bitmap)
++ void finish()
+}
+class com.example.circleMusic.nowPlaying.seekbarListener {
+- int lastProgress
++ <<Create>> seekbarListener()
++ void onProgressChanged(SeekBar,int,boolean)
++ void onStartTrackingTouch(SeekBar)
++ void onStopTrackingTouch(SeekBar)
+}
+class com.example.circleMusic.MainActivity {
+~ int currentTab
+~ ColorStateList def
+~ TextView item1
+~ GoogleSignInOptions gso
+~ GoogleSignInClient gsc
+~ String name
+~ String email
+~ Uri imageUrl
+~ Bundle homeScreenBundle
+~ RotateAnimation anim
+~ ImageView disk
+~ boolean isPlaying
+~ int currentSong
++ ArrayList<MusicItem> musicItemList
++ ArrayList<MusicItem> playlistList
++ ArrayList<MusicItem> currentPlayingList
+~ globalCommunication globalCommunicationVar
+~ NotificationManager notificationManager
+- {static} int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
+# void onCreate(Bundle)
+- ActivityManager.MemoryInfo getAvailableMemory()
+- void smallNowPlayingControl()
+- void syncServiceManager()
+- void getPlaylists(File)
+- void internalStorageFetch()
+- void swipeManager()
+- void changeNowPlayingCard()
++ void finish()
+- int getImage(String)
+- void createChannel()
++ void onClick(View)
+- boolean checkPermissionREAD_EXTERNAL_STORAGE(Context)
+- void showDialog(String,Context,String)
++ void onRequestPermissionsResult(int,String[],int[])
+}
+class com.example.circleMusic.ui.main.SectionsPagerAdapter {
+- {static} int[] TAB_TITLES
+- Context mContext
++ <<Create>> SectionsPagerAdapter(Context,FragmentManager)
++ Fragment getItem(int)
++ CharSequence getPageTitle(int)
++ int getCount()
+}
+class com.example.circleMusic.MusicItem {
+- String title
+- int duration
+- String subTitle
+- int imageId
+- boolean isVertical
+- String path
+- boolean isBig
++ <<Create>> MusicItem(String,String,int,boolean,boolean,String,int)
++ String getPath()
++ void setPath(String)
++ boolean isBig()
++ String getTitle()
++ void setTitle(String)
++ String getSubTitle()
++ void setSubTitle(String)
++ int getImageId()
++ boolean isVertical()
++ int getDuration()
++ void setDuration(int)
+}
+class com.example.circleMusic.createNotification {
++ {static} String CHANNEL_ID
++ {static} Notification notification
++ {static} void createNotification(Context,String,String,int)
+- {static} Bitmap drawableToBitmap(Drawable)
+}
+class com.example.circleMusic.artists {
+- RecyclerView recyclerView
+- ArrayList<MusicItem> musicItems
+- ArrayList<MusicItem> Artists
+- LinearLayoutManager linearLayoutManager
+- artists.MyRvAdapter myRvAdapter
++ <<Create>> artists()
++ {static} artists newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- boolean contains(ArrayList<MusicItem>,String)
+}
+class com.example.circleMusic.artists.MyRvAdapter {
+~ ArrayList<MusicItem> musicItemArrayList
++ <<Create>> MyRvAdapter(ArrayList<MusicItem>)
++ artists.MyRvAdapter.MyHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(artists.MyRvAdapter.MyHolder,int)
++ int getItemCount()
+}
+class com.example.circleMusic.artists.MyRvAdapter.MyHolder {
+~ TextView title
+~ ImageView image
++ <<Create>> MyHolder(View)
+}
+class com.example.circleMusic.ui.main.PageViewModel {
+- MutableLiveData<Integer> mIndex
+- LiveData<String> mText
++ void setIndex(int)
++ LiveData<String> getText()
+}
+class com.example.circleMusic.backgroundSync {
+- globalCommunication globalLists
+- ArrayList<PlaylistItem> playlistItems
+- ArrayList<PlaylistItem> playlistExistsItems
+- ArrayList<TrackItem> trackItems
+- TrackItem trackItem
+- boolean finished_playlists
+- boolean finished_tracks
+- MusicItem currentTrack
+- ID3v2 id3v2Tag
+- Thread serviceThread
+- Thread trackSendThread
+- char[] HEX_ARRAY
++ int onStartCommand(Intent,int,int)
++ void onDestroy()
++ IBinder onBind(Intent)
+- boolean isOnline(Context)
+- byte[] readMp3File(String)
+- String bytesToHex(byte[])
+- String hashString(String)
+}
+class com.example.circleMusic.backgroundSync.PlaylistItem {
+- String title
+- String data
++ <<Create>> PlaylistItem(String,String)
++ String getTitle()
++ void setTitle(String)
++ String getData()
++ void setData(String)
+}
+class com.example.circleMusic.backgroundSync.TrackItem {
+- String title
+- String artist
+- String data
+- String image
++ <<Create>> TrackItem(String)
++ void addToField(String,String)
++ boolean isInitalized()
++ String getTitle()
++ String getArtist()
++ String getData()
++ String getImage()
+}
+class com.example.circleMusic.OnSwipeTouchListener {
+- GestureDetector gestureDetector
++ <<Create>> OnSwipeTouchListener(Context)
++ boolean onTouch(View,MotionEvent)
++ void onClick()
++ void onSwipeRight()
++ void onSwipeLeft()
++ void onSwipeTop()
++ void onSwipeBottom()
+}
+class com.example.circleMusic.OnSwipeTouchListener.GestureListener {
+- {static} int SWIPE_THRESHOLD
+- {static} int SWIPE_VELOCITY_THRESHOLD
++ boolean onDown(MotionEvent)
++ boolean onFling(MotionEvent,MotionEvent,float,float)
+}
+class com.example.circleMusic.Login {
+~ GoogleSignInOptions gso
+~ GoogleSignInClient gsc
+~ ImageView googleBtn
+# void onCreate(Bundle)
+- void signIn()
+# void onActivityResult(int,int,Intent)
+- void endLogin()
+}
+class com.example.circleMusic.ui.main.PlaceholderFragment {
+- {static} String ARG_SECTION_NUMBER
+- PageViewModel pageViewModel
++ {static} PlaceholderFragment newInstance(int)
++ void onCreate(Bundle)
+}
+class com.example.circleMusic.search {
+- SearchView searchView
+- RecyclerView recyclerView
+- LinearLayoutManager linearLayoutManager
+- search.MyRvAdapter myRvAdapter
+- ArrayList<MusicItem> musicItemList
+- ArrayList<MusicItem> musicItemListCpy
+- String playlistName
++ <<Create>> search()
++ {static} search newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- ArrayList<MusicItem> filterList(String)
+}
+class com.example.circleMusic.search.MyRvAdapter {
+~ ArrayList<MusicItem> musicItemArrayList
++ <<Create>> MyRvAdapter(ArrayList<MusicItem>)
++ search.MyRvAdapter.MyHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(search.MyRvAdapter.MyHolder,int)
++ int getItemCount()
+}
+class com.example.circleMusic.search.MyRvAdapter.MyHolder {
+~ TextView title
+~ TextView subTitle
+~ ImageView image
+~ ImageView plus
++ <<Create>> MyHolder(View)
++ TextView getTitle()
++ TextView getSubTitle()
+}
+class com.example.circleMusic.homeScreen {
+- RecyclerView recyclerView
+- ArrayList<MusicItem> Playlists
+- ArrayList<MusicItem> Special
+- ArrayList<MusicItem> musicItems
+- LinearLayoutManager linearLayoutManager
+- MyRvAdapter myRvAdapter
+~ GoogleSignInOptions gso
+~ GoogleSignInClient gsc
+- String playlistName
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void googleImageListener(View)
+- void setGoogleProfilePicture(String,View)
+- void popupMessage()
+- boolean isOnline(Context)
+- void manageSpecial(View)
+- void signOut()
+}
+class com.example.circleMusic.homeScreen.MyRvAdapter {
+~ ArrayList<MusicItem> musicItemArrayList
+~ boolean isVeritcal
+~ boolean isBig
++ <<Create>> MyRvAdapter(ArrayList<MusicItem>)
++ MyHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(MyHolder,int)
++ int getItemCount()
+}
+class com.example.circleMusic.homeScreen.MyRvAdapter.MyHolder {
+~ TextView title
+~ TextView subTitle
+~ ImageView image
+~ ImageView plus
++ <<Create>> MyHolder(View)
+}
+class com.example.circleMusic.errorPage {
++ <<Create>> errorPage()
++ {static} errorPage newInstance(String,String)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.circleMusic.placeholder.PlaceholderContent {
++ {static} List<PlaceholderItem> ITEMS
++ {static} Map<String,PlaceholderItem> ITEM_MAP
+- {static} int COUNT
+- {static} void addItem(PlaceholderItem)
+- {static} PlaceholderItem createPlaceholderItem(int)
+- {static} String makeDetails(int)
+}
+class com.example.circleMusic.placeholder.PlaceholderContent.PlaceholderItem {
++ String id
++ String content
++ String details
++ <<Create>> PlaceholderItem(String,String,String)
++ String toString()
+}
+class com.example.circleMusic.globalCommunication {
+- ArrayList<MusicItem> trackList
+- ArrayList<MusicItem> currentPlayingList
+- ArrayList<MusicItem> playlistList
+- int currentPlaying
+- boolean isFinishedSyncing
+- boolean currentlySyncing
+- boolean isShuffle
+- boolean isPlaylistShuffle
+- boolean isOne
+- int imageId
+- ArrayList<Drawable> images
+- boolean isLoaded
+- boolean changedSongAfterFinish
+- boolean isSyncActivated
+- MediaPlayer mediaPlayer
++ boolean isPlaylistShuffle()
++ void setPlaylistShuffle(boolean)
++ void addPlaylist(MusicItem)
++ ArrayList<MusicItem> getTrackList()
++ void setTrackList(ArrayList<MusicItem>)
++ ArrayList<MusicItem> getCurrentPlayingList()
++ void setCurrentPlayingList(ArrayList<MusicItem>)
++ int addImage(Drawable)
++ Drawable getImage(int)
++ boolean isFinishedSyncing()
++ void setFinishedSyncing(boolean)
++ int getCurrentPlaying()
++ void setCurrentPlaying(int)
++ boolean isCurrentlySyncing()
++ void setCurrentlySyncing(boolean)
++ boolean isShuffle()
++ void setShuffle(boolean)
++ boolean isOne()
++ void setOne(boolean)
++ int getTrackPositionFromName(MusicItem)
++ void load(String)
++ void play()
++ void pause()
++ void setProgress(int)
++ int getProgress()
++ int getDuration()
++ boolean isLoaded()
++ boolean isPlaying()
++ void addToPlaylist(MusicItem,String)
++ void createPlaylist(String)
++ void removeFromPlaylist(String,MusicItem)
++ ArrayList<MusicItem> getPlaylistList()
++ String getPlaylistPathFromName(String)
++ MusicItem getTrackFromName(String)
++ void setPlaylistList(ArrayList<MusicItem>)
++ boolean isChangedSongAfterFinish()
++ void setChangedSongAfterFinish(boolean)
++ boolean isSyncActivated()
++ void setSyncActivated(boolean)
+}
+class com.example.circleMusic.playlist {
+- RecyclerView recyclerView
+- ArrayList<MusicItem> filteredMusicItems
+- LinearLayoutManager linearLayoutManager
+- playlist.MyRvAdapter myRvAdapter
+- ImageView subjectImage
+- MusicItem playtlistItem
+# void onCreate(Bundle)
+- ArrayList<MusicItem> shuffle(ArrayList<MusicItem>)
+- {static} int getDominantColor(Bitmap)
+}
+class com.example.circleMusic.playlist.MyRvAdapter {
+~ ArrayList<MusicItem> musicItemArrayList
++ <<Create>> MyRvAdapter(ArrayList<MusicItem>)
++ playlist.MyRvAdapter.MyHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(playlist.MyRvAdapter.MyHolder,int)
++ int getItemCount()
+}
+class com.example.circleMusic.playlist.MyRvAdapter.MyHolder {
+~ TextView title
+~ TextView subTitle
+~ ImageView image
+~ ImageView remove
++ <<Create>> MyHolder(View)
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.circleMusic.nowPlaying
+com.example.circleMusic.nowPlaying +.. com.example.circleMusic.nowPlaying.seekbarListener
+com.example.circleMusic.OnSeekBarChangeListener <|.. com.example.circleMusic.nowPlaying.seekbarListener
+com.example.circleMusic.OnClickListener <|.. com.example.circleMusic.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.circleMusic.MainActivity
+androidx.fragment.app.FragmentPagerAdapter <|-- com.example.circleMusic.ui.main.SectionsPagerAdapter
+com.example.circleMusic.Serializable <|.. com.example.circleMusic.MusicItem
+androidx.fragment.app.Fragment <|-- com.example.circleMusic.artists
+com.example.circleMusic.artists +.. com.example.circleMusic.artists.MyRvAdapter
+com.example.circleMusic.Adapter <|-- com.example.circleMusic.artists.MyRvAdapter
+com.example.circleMusic.artists.MyRvAdapter +.. com.example.circleMusic.artists.MyRvAdapter.MyHolder
+com.example.circleMusic.ViewHolder <|-- com.example.circleMusic.artists.MyRvAdapter.MyHolder
+androidx.lifecycle.ViewModel <|-- com.example.circleMusic.ui.main.PageViewModel
+android.app.Service <|-- com.example.circleMusic.backgroundSync
+com.example.circleMusic.backgroundSync +.. com.example.circleMusic.backgroundSync.PlaylistItem
+com.example.circleMusic.backgroundSync +.. com.example.circleMusic.backgroundSync.TrackItem
+android.view.View.OnTouchListener <|.. com.example.circleMusic.OnSwipeTouchListener
+com.example.circleMusic.OnSwipeTouchListener +.. com.example.circleMusic.OnSwipeTouchListener.GestureListener
+com.example.circleMusic.SimpleOnGestureListener <|-- com.example.circleMusic.OnSwipeTouchListener.GestureListener
+androidx.appcompat.app.AppCompatActivity <|-- com.example.circleMusic.Login
+androidx.fragment.app.Fragment <|-- com.example.circleMusic.ui.main.PlaceholderFragment
+androidx.fragment.app.Fragment <|-- com.example.circleMusic.search
+com.example.circleMusic.search +.. com.example.circleMusic.search.MyRvAdapter
+com.example.circleMusic.Adapter <|-- com.example.circleMusic.search.MyRvAdapter
+com.example.circleMusic.search.MyRvAdapter +.. com.example.circleMusic.search.MyRvAdapter.MyHolder
+com.example.circleMusic.ViewHolder <|-- com.example.circleMusic.search.MyRvAdapter.MyHolder
+androidx.fragment.app.Fragment <|-- com.example.circleMusic.homeScreen
+com.example.circleMusic.homeScreen +.. com.example.circleMusic.homeScreen.MyRvAdapter
+com.example.circleMusic.Adapter <|-- com.example.circleMusic.homeScreen.MyRvAdapter
+com.example.circleMusic.homeScreen.MyRvAdapter +.. com.example.circleMusic.homeScreen.MyRvAdapter.MyHolder
+com.example.circleMusic.ViewHolder <|-- com.example.circleMusic.homeScreen.MyRvAdapter.MyHolder
+androidx.fragment.app.Fragment <|-- com.example.circleMusic.errorPage
+com.example.circleMusic.placeholder.PlaceholderContent +.. com.example.circleMusic.placeholder.PlaceholderContent.PlaceholderItem
+android.app.Application <|-- com.example.circleMusic.globalCommunication
+androidx.appcompat.app.AppCompatActivity <|-- com.example.circleMusic.playlist
+com.example.circleMusic.playlist +.. com.example.circleMusic.playlist.MyRvAdapter
+com.example.circleMusic.Adapter <|-- com.example.circleMusic.playlist.MyRvAdapter
+com.example.circleMusic.playlist.MyRvAdapter +.. com.example.circleMusic.playlist.MyRvAdapter.MyHolder
+com.example.circleMusic.ViewHolder <|-- com.example.circleMusic.playlist.MyRvAdapter.MyHolder
+@enduml

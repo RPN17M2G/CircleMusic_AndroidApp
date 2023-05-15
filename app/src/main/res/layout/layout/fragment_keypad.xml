@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".keypad">
+
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/keypad_backgroung3"
+    >
+    </RelativeLayout>
+
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.androxp.randika.main.keypad"
+        tools:showIn="@layout/fragment_keypad">
+
+        <TextView
+            android:id="@+id/number"
+
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_above="@+id/button2"
+            android:layout_marginBottom="200dp"
+
+            android:gravity="left"
+            android:letterSpacing=".10"
+            android:text="052345879"
+            android:textSize="50dp" />
+
+        <Button
+            android:id="@+id/button_delete"
+
+            android:layout_width="80dp"
+
+            android:layout_height="45dp"
+            android:layout_above="@+id/button3"
+
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="220dp"
+            android:layout_toRightOf="@+id/number"
+            android:background="@drawable/delete_button"
+            android:foreground="?android:attr/selectableItemBackground"
+
+            />
+
+        <Button
+            android:id="@+id/call"
+
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/button7"
+            android:layout_alignStart="@+id/button7"
+            android:layout_alignLeft="@+id/button7"
+            android:layout_marginBottom="15dp"
+            android:background="@mipmap/call_button_round"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:backgroundTint="@null"
+
+
+            />
+
+        <Button
+            android:id="@+id/button1"
+
+            android:layout_width="110dp"
+
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="1"
+            app:backgroundTint="@null"
+
+             />
+
+        <Button
+            android:id="@+id/button2"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="115dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toRightOf="@+id/button1"
+            android:background="@drawable/round_button"
+            app:backgroundTint="@null"
+
+            android:text="2" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_toRightOf="@+id/button2"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_height="60dp"
+            android:layout_width="110dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_button"
+            app:backgroundTint="@null"
+
+            android:text="3"/>
+
+        <Button
+            android:id="@+id/button4"
+
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/button1"
+            android:layout_alignStart="@+id/button1"
+            android:layout_alignLeft="@+id/button1"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:backgroundTint="@null"
+
+            android:text="4" />
+
+        <Button
+            android:id="@+id/button5"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="115dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/button4"
+            android:layout_alignEnd="@+id/button2"
+            android:layout_alignRight="@+id/button2"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="15dp"
+            app:backgroundTint="@null"
+
+            android:text="5" />
+
+        <Button
+            android:id="@+id/button6"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/button3"
+            android:layout_alignEnd="@+id/button3"
+            android:layout_alignRight="@+id/button3"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="15dp"
+            app:backgroundTint="@null"
+
+            android:text="6" />
+
+        <Button
+            android:id="@+id/button7"
+
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/button4"
+            android:layout_alignStart="@+id/button4"
+            android:layout_alignLeft="@+id/button4"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:backgroundTint="@null"
+
+            android:text="7" />
+
+        <Button
+            android:id="@+id/button8"
+
+            android:layout_width="115dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/button5"
+            android:layout_alignLeft="@+id/button5"
+            android:layout_alignTop="@+id/button7"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:backgroundTint="@null"
+
+            android:text="8" />
+
+        <Button
+            android:id="@+id/button9"
+
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="110dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/button6"
+            android:layout_alignEnd="@+id/button6"
+            android:layout_alignRight="@+id/button6"
+            android:background="@drawable/round_button"
+            android:layout_marginBottom="15dp"
+            app:backgroundTint="@null"
+
+            android:text="9" />
+
+
+        <Button
+            android:id="@+id/button0"
+
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_below="@+id/button8"
+            android:layout_alignStart="@+id/button8"
+            android:layout_alignEnd="@+id/button8"
+            android:layout_marginBottom="60dp"
+            android:layout_toLeftOf="@+id/button9"
+            android:layout_toRightOf="@+id/button7"
+            android:background="@drawable/round_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:backgroundTint="@null"
+
+            android:text="0" />
+
+
+    </RelativeLayout>
+</FrameLayout>

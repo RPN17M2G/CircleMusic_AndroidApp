@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Circle Music</string>
+    <string name="tab_text_1">Keypad</string>
+    <string name="tab_text_2">Contacts</string>
+    <string name="tab_text_3">Recents</string>
+
+    <string name="app_name_show">Circle Music</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="special_tag">Special</string>
+    <string name="playlists_tag">Playlists</string>
+    <string name="tracks_tag">Tracks</string>
+    <string name="title">Title</string>
+    <string name="sub_title">Sub Title</string>
+    <string name="artists">Artists</string>
+    <string name="song_name">Song name</string>
+    <string name="song_artist">Song artist</string>
+    <string name="_00_00">00:00</string>
+    <string name="circle_music_descriptaion">Circle Music is a well-designed music player app that allows offline play and synchronisation between devices.</string>
+
+</resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "494573964825",
+    "firebase_url": "https://circle-music-e02ce-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "circle-music-e02ce",
+    "storage_bucket": "circle-music-e02ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494573964825:android:0568bda888d8b29f046488",
+        "android_client_info": {
+          "package_name": "com.example.circleMusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494573964825-gti0h5nu8i3h9hpmn8mtpvekvvmphsol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsAci3MBSorQ1ViZBvqwfosWnf2ZH6FO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494573964825-gti0h5nu8i3h9hpmn8mtpvekvvmphsol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
