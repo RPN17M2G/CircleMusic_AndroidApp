@@ -10,5 +10,5 @@ The application enables control over the playing music, playlist creation and ma
 Additionally, there are security measures in place to protect user privacy, including the use of advanced SHA256 hashing function for the one-way encryption of data in the database.
 The interface is designed to be reactive and dynamic, with background colors changing according to the image of the playing song or the selected playlist.
 
-The full project description(In Hebrew) will be uploaded at the 9th of June 2023.
-*This repository lacks issues and commits because of private information is included until removal at the 9th of June 2023.
+The full project description(In Hebrew): https://docs.google.com/document/d/1_-6tI0I_SmsiY7EN2z8jfDEre81X3eq3K0x-l__oiMc/edit?usp=sharing
+*This repository lacks issues and commits because private information was included until removal at the 19th of May 2023.
