@@ -1,9 +1,9 @@
 # CircleMusic_AndroidApp
 
-An Android operating system application that was created for a final project in 10 points computer engineering.
+An Android operating system application that was created for a final project in 10 points computer engineering at school.
 
 MP3 File Player Application.
-The application uploads MP3 music files and M3U playlist files from the device's memory while filtering call recordings. 
+The application retrieves MP3 music files and M3U playlist files from the device's storage while filtering call recordings. 
 A cloud-based database is utilized to back up the user's songs and playlists and synchronize them across different devices.
 Once synchronized, the songs can be played without requiring internet access. 
 The application enables control over the playing music, playlist creation and management.
